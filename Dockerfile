@@ -1,4 +1,4 @@
-FROM some-alpine-image:RELEASE
+FROM alpine:3.7
 
 RUN apk update && apk upgrade && apk add bash
 
