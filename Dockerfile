@@ -6,6 +6,7 @@ COPY some_project /
 
 RUN apk add --virtual .build-dependencies musl-dev gcc libxslt-dev libxml2-dev python3-dev
 RUN apk add py3-lxml
-RUN sudo apt-get install python
+RUN apk --update add python py-pip
+RUN python setup.py install
 
 ENTRYPOINT ["some_command", "--a", "default-parameter"]
