@@ -1,5 +1,7 @@
 package j8;
 
+@Hint("hint1")
+@Hint("hint2")
 interface Formula {
     double calculate(int a);
 
