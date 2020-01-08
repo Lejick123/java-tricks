@@ -1,6 +1,7 @@
 package j8;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -12,7 +13,7 @@ public class Main {
                 return sqrt(a * 100);
             }
         };
-        formula.calculate(100);     // 100.0
+        formula.calculate(100);
         formula.sqrt(16);
 
         List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
@@ -64,16 +65,21 @@ public class Main {
          * Нахождение максимального и минимального значений
          */
         ArrayList<Integer> testValues = new ArrayList();
+
         testValues.add(0,15);
         testValues.add(1,1);
         testValues.add(2,2);
         testValues.add(3,100);
         testValues.add(4,50);
-
+        testValues.forEach(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                integer++;
+            }
+        });
         Optional<Integer> maxValue = testValues.stream().max(Integer::compareTo);
         System.out.println("MaxValue="+maxValue);
         Optional<Integer> minValue = testValues.stream().min(Integer::compareTo);
         System.out.println("MinValue="+minValue);
-
     }
 }
